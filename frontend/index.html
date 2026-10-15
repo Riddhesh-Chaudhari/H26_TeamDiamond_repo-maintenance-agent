@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f5">
+  <title>Scout — Repository maintenance</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Scout home">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+        <span>scout<span class="brand-period">.</span></span>
+      </a>
+      <div class="workspace-label">WORKSPACE</div>
+      <button class="workspace-switcher" type="button">
+        <span class="workspace-icon">R</span>
+        <span class="workspace-name">Repository review</span>
+        <span class="chevron" aria-hidden="true">⌄</span>
+      </button>
+      <nav class="side-nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#analyze">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5h16M4 12h10M4 18.5h7"/><circle cx="18" cy="16" r="3"/></svg>
+          <span>Evidence analysis</span>
+        </a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="local-card">
+          <span class="local-dot"></span>
+          <div><strong>Runs locally</strong><span>Powered by Ollama</span></div>
+        </div>
+        <div class="sidebar-foot">SCOUT · REPO MAINTENANCE</div>
+      </div>
+    </aside>
+
+    <main class="main-content" id="analyze">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong>Evidence analysis</strong></div>
+        <div class="topbar-right"><span class="secure-label"><span class="secure-dot"></span> Private by design</span><span class="avatar">S</span></div>
+      </header>
+
+      <div class="page-wrap">
+        <section class="intro">
+          <div class="eyebrow"><span class="eyebrow-line"></span> YOUR REPOSITORY CO-MAINTAINER</div>
+          <h1>Make sense of<br><span>the maintenance noise.</span></h1>
+          <p class="intro-copy">Share what you’ve observed. Scout will turn your repository evidence into a clear, grounded analysis — no invented findings, no unverified fixes.</p>
+          <div class="trust-note"><span class="shield-icon" aria-hidden="true">◇</span> Your evidence is sent only to your local Ollama instance.</div>
+        </section>
+
+        <section class="analysis-layout" aria-label="Evidence analysis">
+          <div class="input-panel panel">
+            <div class="panel-heading">
+              <div><span class="step-label">01 <i></i> INPUT</span><h2>Repository evidence</h2></div>
+              <span class="optional-label">PASTE OR TYPE</span>
+            </div>
+            <p class="panel-description">Include logs, dependency details, test output, or any other relevant observations.</p>
+            <label class="sr-only" for="evidence">Repository evidence to analyze</label>
+            <textarea id="evidence" maxlength="1000000" placeholder="Paste your evidence here...&#10;&#10;For example: error messages, package versions, test results, or diagnostic steps."></textarea>
+            <div class="textarea-meta"><span id="char-count">0 characters</span><button class="text-button" id="load-example" type="button"><span aria-hidden="true">↗</span> Load example</button></div>
+            <div class="input-footer">
+              <span class="input-hint"><span class="hint-icon">i</span> Only analyze evidence you provide.</span>
+              <button class="analyze-button" id="analyze-button" type="button">
+                <span class="button-label">Analyze evidence</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M10 5l5 5-5 5"/></svg>
+              </button>
+            </div>
+            <div class="error-message" id="error-message" role="alert" hidden></div>
+          </div>
+
+          <section class="results-panel panel" aria-live="polite" aria-busy="false" id="results-panel">
+            <div class="panel-heading results-heading">
+              <div><span class="step-label">02 <i></i> RESULTS</span><h2>Analysis</h2></div>
+              <span class="unverified-badge"><span></span> NOT VERIFIED</span>
+            </div>
+            <div id="empty-state" class="empty-state">
+              <div class="empty-illustration" aria-hidden="true">
+                <div class="illustration-orbit orbit-one"></div><div class="illustration-orbit orbit-two"></div>
+                <div class="illustration-center"><span class="brand-mark"><span></span><span></span><span></span><span></span></span></div>
+                <span class="spark spark-one">✳</span><span class="spark spark-two">·</span>
+              </div>
+              <h3>Your findings, made clearer.</h3>
+              <p>Submit evidence to see a structured summary, practical next steps, and any compatibility concerns.</p>
+              <div class="empty-points"><span><i>✓</i> Evidence-led</span><span><i>✓</i> No made-up fixes</span></div>
+            </div>
+            <div id="loading-state" class="loading-state" hidden>
+              <span class="loader"></span>
+              <h3>Reading the evidence</h3>
+              <p>Scout is asking your local model for an analysis. This can take a minute.</p>
+            </div>
+            <div id="analysis-results" class="analysis-results" hidden></div>
+            <div class="result-footnote"><span aria-hidden="true">ⓘ</span> Recommendations are AI-generated. Verify changes independently.</div>
+          </section>
+        </section>
+
+        <footer class="page-footer"><span>Thoughtful maintenance starts with good evidence.</span><span>SCOUT <i>·</i> LOCAL AI</span></footer>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
